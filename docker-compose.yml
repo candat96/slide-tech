@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  hopita-tech-slides:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hopita-tech-slides
+    ports:
+      - "3190:3190"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - hopita-network
+
+networks:
+  hopita-network:
+    driver: bridge
